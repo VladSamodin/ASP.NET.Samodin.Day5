@@ -9,7 +9,6 @@ namespace Task1.Book
 {
     public class BookListService
     {
-        //private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private static ILogger logger;
         private IRepository<Book> repository;
         private List<Book> list;

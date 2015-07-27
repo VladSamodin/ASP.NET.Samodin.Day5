@@ -16,17 +16,8 @@ namespace Task1.Book.Test
             BookListService bls = new BookListService(fileBookRepository);
             Console.WriteLine("Исходный список книг:");
             PrintListBooks(fileBookRepository.GetList().ToList());
-            /*
-            Book book = new Book
-            {
-                Author = "Льюис Кэрролл",
-                Title = "Алиса в Стране чудес",
-                PageCount = 237,
-                YearPublishing = 1865,
-                Genre = "Сказка"
-            };
-             * */
             Book book = new Book("Льюис Кэрролл", "Алиса в Стране чудес", 237, 1865, "Сказка");
+
             Console.WriteLine("Пытаемся добавить книгу");
             PrintBook(book);
             try
@@ -36,7 +27,7 @@ namespace Task1.Book.Test
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: {0}\n", e.Message);
+                Console.WriteLine("Ошибка: {0}\n", e.Message);
             }
 
             Console.WriteLine("Пытаемся удалить книгу");
@@ -47,7 +38,7 @@ namespace Task1.Book.Test
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: {0}\n", e.Message);
+                Console.WriteLine("Ошибка: {0}\n", e.Message);
             }
             Console.WriteLine();
 
@@ -63,7 +54,7 @@ namespace Task1.Book.Test
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: {0}\n", e.Message);
+                Console.WriteLine("Ошибка: {0}\n", e.Message);
             }
 
             Console.WriteLine("Пытаемся найти удаленную книгу по названию \"Алиса в Стране чудес\"");
@@ -123,61 +114,20 @@ namespace Task1.Book.Test
             toAdd = new Book("Виталий Зыков", "Безымянный раб", 609, 2004, "Фэнтези");
             bls.AddBook(toAdd);
             bls.Save();
-
-            /*
-            Book toAdd = new Book
-            {
-                Author = "Антуан де Сент-Экзюпери",
-                Title = "Маленький принц",
-                PageCount = 54,
-                YearPublishing = 1943,
-                Genre = "Сказка"
-            };
-            bls.AddBook(toAdd);
-            toAdd = new Book
-            {
-                Author = "Макс Фрай",
-                Title = "Лабиринт Менина",
-                PageCount = 316,
-                YearPublishing = 2003,
-                Genre = "Фэнтези"
-            };
-            bls.AddBook(toAdd);
-            toAdd = new Book
-            {
-                Author = "Льюис Кэрролл",
-                Title = "Алиса в Стране чудес",
-                PageCount = 237,
-                YearPublishing = 1865,
-                Genre = "Сказка"
-            };
-            bls.AddBook(toAdd);
-            toAdd = new Book
-            {
-                Author = "Виталий Зыков",
-                Title = "Безымянный раб",
-                PageCount = 609,
-                YearPublishing = 2004,
-                Genre = "Фэнтези"
-            };
-            bls.AddBook(toAdd);
-             * 
-            bls.Save();
-             * */
         }
 
         private static void PrintListBooks(List<Book> listBooks)
         {
             for (int i = 0; i < listBooks.Count; i++)
             {
-                Console.WriteLine("Book {0}", i + 1);
+                Console.WriteLine("Книга {0}", i + 1);
                 PrintBook(listBooks[i]);
             }
         }
 
         private static void PrintBook(Book book)
         {
-            Console.WriteLine(" Author: {0} \n Title: {1} \n PageCount: {2} \n YearPublishing: {3} \n Genre: {4} \n",
+            Console.WriteLine(" Автор: {0} \n Название: {1} \n Количество страниц: {2} \n Год публикации: {3} \n Жанр: {4} \n",
                     book.Author, book.Title, book.PageCount, book.YearPublishing, book.Genre);
         }
     }

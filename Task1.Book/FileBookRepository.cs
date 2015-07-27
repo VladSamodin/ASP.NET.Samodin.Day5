@@ -35,16 +35,6 @@ namespace Task1.Book
                     int yearPublishing = binaryReader.ReadInt32();
                     string genre = binaryReader.ReadString();
                     Book book = new Book(author, title, pageCount, yearPublishing, genre);
-                    /*
-                    Book book = new Book
-                    {
-                        Author = author,
-                        Title = title,
-                        PageCount = pageCount,
-                        YearPublishing = yearPublishing,
-                        Genre = genre
-                    };
-                     * */
                     listBooks.Add(book);
                 }
             }
